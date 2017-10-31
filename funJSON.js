@@ -41,8 +41,8 @@
       }
       return value;
     },
-    detect: function(obj, key, text){
-      return typeof text == 'string' && /^function\s*\([\s\w$,]*\)\s*\{[\s\S]*\}$/.test(text);
+    detect: function(obj, key, value){
+      return typeof value == 'string' && /^function\s*\([\s\w$,]*\)\s*\{[\s\S]*\}$/.test(value);
     },
     stringify: function(value, replacer, space){
       var me = this;
