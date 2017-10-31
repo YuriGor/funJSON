@@ -12,7 +12,7 @@
       root.funJSON = previous_funJSON;
       return funJSON;
     },
-    JSON: root.JSON,
+    JSON: JSON||root.JSON,
     parse: function(text,reviver){
       var me = this;
       var rv;
@@ -27,7 +27,7 @@
           return me.reviver(this,key,value);
         };
       }
-      return JSON.parse(text,rv);
+      return this.JSON.parse(text,rv);
     },
     reviver: function(obj, key, value){
       if(this.detect(obj, key, value))
@@ -58,7 +58,7 @@
           return me.replacer(this,key,value);
         };
       }
-      return JSON.stringify(value, rp, space);
+      return this.JSON.stringify(value, rp, space);
     },
     replacer: function(obj, key, value){
       if(typeof value == 'function')
