@@ -64,6 +64,34 @@
       if(typeof value == 'function')
         value = value.toString();
       return value;
+    },
+    stringifyToScript: function(value, replacer, space){
+      var me = this;
+      var rp;
+      var functions = [];
+      if(replacer)
+      {
+        rp = function(key, value){
+          var obj = this;
+          return me.replacerToScript(obj,key,replacer.call(obj,key,value),functions);
+        };
+      }else{
+        rp = function(key, value){
+          return me.replacerToScript(this,key,value,functions);
+        };
+      }
+      var script = this.stringify(value,rp,space);
+      for (var i = 0; i < functions.length; i++){
+        // console.log('"'+this.stringify(functions[i],rp,space)+'"');
+        // console.log(functions[i]);
+        script = script.replace(this.stringify(functions[i],rp,space),functions[i]);
+      }
+      return script;
+    },
+    replacerToScript: function(obj, key, value, functions) {
+      if(typeof value == 'function')
+        functions.push(value.toString());
+      return value;
     }
   };
 

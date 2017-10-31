@@ -13,7 +13,7 @@ var obj = {
     a1:'a1',
     fa:function(name){
       //some comment here
-      console.log('fa Hello ' + name, this);
+      console.log('fa Hello ' + name);
       return 'fa Hello ' + name;
     }
   },
@@ -22,16 +22,23 @@ var obj = {
   },
   f:function(name){
     //some comment here
-    console.log('f Hello ' + name, this);
+    console.log('f Hello ' + name);
     return 'f Hello ' + name;
   }
 };
 
 var str = funJSON.stringify(obj,null,2);// same syntax as for JSON.stringify
-console.log('ser',str);
+console.log('JSON:',str);
 var obj2 = funJSON.parse(str);// same syntax as for JSON.parse
 obj2.f('obj');
 obj2.a.fa('obj.a');
+
+str = funJSON.stringifyToScript(obj,null,2);// generate JavaScript string. Useful for letting user edit it in some code editor for example.
+console.log('JS:',str);
+eval('obj2 = '+str);
+obj2.f("obj");
+obj2.a.fa("obj.a");
+
 ````
 ### funJSON.\*
 
@@ -53,5 +60,7 @@ obj2.a.fa('obj.a');
     * **replacer(key, value)** - optional **function**(array with white list currently unsupported) to modify value before serialization. Will be called before funJSON inner replacer.
     * **space** - optional, defines how many spaces to use for pretty JSON indentation.
   * **replacer(obj,key,value)** - inner replacer used to detect and serialize methods. Simply checks if given value is function, and if so - returns it's toString(). You may want to override it to implement your custom function detect/stringify convention.
+  * **stringifyToScript(value\[, replacer\[, space\]\])**:string - serializes object with methods into JavaScript string. All the functions renders as is, not as escaped strings values.
+  * **replacerToScript(obj, key, value, functions)** - inner replacer used to collect functions from the object, unwrap them from strings values in result script.
 
 *Any feedback is welcome.*
