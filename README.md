@@ -43,7 +43,8 @@ var obj2 = funJSON.parse(str);// same syntax as for JSON.parse
 obj2.f('obj');
 obj2.a.fa('obj.a');
 
-str = funJSON.stringifyToScript(obj,null,2);// generate JavaScript string. Useful for letting user edit it in some code editor for example.
+str = funJSON.stringifyToScript(obj,null,2);// generate JavaScript string.
+//Useful for letting user edit it in some code editor for example.
 console.log('JS:',str);
 eval('obj2 = '+str);
 obj2.f("obj");
