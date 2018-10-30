@@ -1,12 +1,22 @@
-## funJSON - JSON with functions(methods)
+## funJSON - JSON with functions (methods)
 
 Implementation of [reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#Parameters) and [replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#The_replacer_parameter) functions for JSON parser to stringify, detect and parse methods as strings.
 Works in browser and node, no dependencies.
 
+### Installation
+In a browser just load a script:
+```html
+<script src="funJSON.js"></script>
+```
+Using npm:
+```
+npm i --save funjson
+```
+
 ### Basic Usage
 
-````javascript
-//const funJSON = require('./funJSON');//require for node or just load script in your page
+```javascript
+//const funJSON = require('funjson');//require for node
 
 var obj = {
   a:{
@@ -39,7 +49,7 @@ eval('obj2 = '+str);
 obj2.f("obj");
 obj2.a.fa("obj.a");
 
-````
+```
 ### funJSON.\*
 
   * **JSON** - standard JSON parser to use. If not ovveridden, native JSON will be used by default.

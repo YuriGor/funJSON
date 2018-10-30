@@ -1,0 +1,26 @@
+{
+  "name": "funjson",
+  "version": "1.0.0",
+  "description": "JSON with functions (methods)",
+  "main": "funJSON.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuriGor/funJSON.git"
+  },
+  "keywords": [
+    "JSON",
+    "function",
+    "JSON",
+    "function",
+    "reviver"
+  ],
+  "author": "Yuri Gor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YuriGor/funJSON/issues"
+  },
+  "homepage": "https://github.com/YuriGor/funJSON#readme"
+}
