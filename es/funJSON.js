@@ -1,5 +1,3 @@
-'use strict';
-
 function reviver(key, value) {
   if (detect(key, value)) {
     try {
@@ -24,19 +22,19 @@ function detect(key, value) {
 }
 
 function replacer(key, value) {
-  if (typeof value == 'function') { value = value.toString(); }
+  if (typeof value == 'function') value = value.toString();
   return value;
 }
 
-function parse(text, extReviver) {
+export function parse(text, extReviver) {
   return JSON.parse(text, extReviver || reviver);
 }
 
-function stringify(value, extReplacer, space) {
+export function stringify(value, extReplacer, space) {
   return JSON.stringify(value, extReplacer || replacer, space);
 }
 
-function stringifyToScript(value, extReplacer, space) {
+export function stringifyToScript(value, extReplacer, space) {
   var functions = [];
   var rp = function(key, value) {
     if (typeof value == 'function') {
@@ -51,8 +49,3 @@ function stringifyToScript(value, extReplacer, space) {
   }
   return script;
 }
-
-exports.parse = parse;
-exports.stringify = stringify;
-exports.stringifyToScript = stringifyToScript;
-//# sourceMappingURL=funJSON.js.map

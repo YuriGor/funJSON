@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "JSON with functions (methods)",
   "main": "funJSON.js",
+  "module": "es/funJSON.js",
+  "browser": "browser/funJSON.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "prepare": "npm run build",
+    "test": "nyc mocha --require reify --reporter min",
+    "report": "nyc --require reify --reporter=html --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -22,5 +28,27 @@
   "bugs": {
     "url": "https://github.com/YuriGor/funJSON/issues"
   },
-  "homepage": "https://github.com/YuriGor/funJSON#readme"
+  "homepage": "https://github.com/YuriGor/funJSON#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-asserttype": "^1.0.5",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "prettier": "^1.17.0",
+    "reify": "^0.18.1",
+    "rollup": "^1.11.3",
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.4",
+    "rollup-plugin-postprocess": "^1.0.2",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^4.0.4"
+  },
+  "dependencies": {
+    "strip-comments": "^1.0.2"
+  }
 }
