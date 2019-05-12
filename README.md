@@ -1,7 +1,7 @@
 ## funJSON
  - JSON with functions (methods)
 
-[![Known Vulnerabilities](https://snyk.io/test/npm/funjson/badge.svg)](https://snyk.io/test/npm/funjson) [![Travis (.org)](https://api.travis-ci.org/YuriGor/funjson.svg?branch=master)](https://travis-ci.org/YuriGor/funjson) [![Coverage Status](https://coveralls.io/repos/github/YuriGor/funjson/badge.svg?branch=master)](https://coveralls.io/github/YuriGor/funjson?branch=master) <br>
+[![Known Vulnerabilities](https://snyk.io/test/npm/funjson/badge.svg)](https://snyk.io/test/npm/funjson) [![Travis (.org)](https://api.travis-ci.org/YuriGor/funjson.svg?branch=master)](https://travis-ci.org/YuriGor/funjson) [![Coverage Status](https://coveralls.io/repos/github/YuriGor/funJSON/badge.svg?branch=master)](https://coveralls.io/github/YuriGor/funJSON?branch=master) <br>
 [![NPM](https://nodei.co/npm/funjson.png?compact=true)](https://nodei.co/npm/funjson/)
 
 
