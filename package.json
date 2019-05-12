@@ -4,7 +4,7 @@
   "description": "JSON with functions (methods)",
   "main": "funJSON.js",
   "module": "es/funJSON.js",
-  "browser": "browser/funJSON.min.js",
+  "browser": "browser/funJSON.js",
   "scripts": {
     "build": "rollup -c",
     "prepare": "npm run build",

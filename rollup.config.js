@@ -33,7 +33,7 @@ export default [
     input: 'es/funJSON.js',
     output: {
       name: 'funJSON',
-      file: pkg.browser.replace('.min.', '.'),
+      file: pkg.browser.replace('.js', '.min.js'),
       format: 'iife',
       esModule: false,
       sourcemap: true,
