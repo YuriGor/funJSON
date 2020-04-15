@@ -21,10 +21,13 @@ describe('Parse', () => {
   it('function', () => {
     testFunction('function() {}');
   });
+  it('function with no args but comments', () => {
+    testFunction('function(/*hello*/) {}');
+  });
   it('function with args', () => {
     testFunction('function(a, b, c) {}');
   });
-  it('function with args', () => {
+  it('function with args and comments', () => {
     testFunction('function(a, b, c /*, d */) {}');
   });
 
