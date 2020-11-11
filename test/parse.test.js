@@ -7,7 +7,7 @@ const asserttype = require('chai-asserttype');
 chai.use(asserttype);
 
 describe('Parse', () => {
-  function testFunction(source, result, reviver) {
+  async function testFunction(source, result, reviver) {
     // test run! test this!
     let objSource = `{"f":"${source}", "hello":"world"}`;
     let obj = parse(objSource, reviver);
@@ -15,7 +15,7 @@ describe('Parse', () => {
       .has.property('f')
       .and.is.a.function();
     expect(obj.f.toString()).equal(source);
-    expect(obj.f()).equal(result);
+    expect(await obj.f()).equal(result);
   }
 
   it('function', () => {
@@ -31,6 +31,19 @@ describe('Parse', () => {
     testFunction('function(a, b, c /*, d */) {}');
   });
 
+  it('async function', () => {
+    testFunction('async function() {}');
+  });
+  it('async function with no args but comments', () => {
+    testFunction('async function(/*hello*/) {}');
+  });
+  it('async function with args', () => {
+    testFunction('async function(a, b, c) {}');
+  });
+  it('async function with args and comments', () => {
+    testFunction('async function(a, b, c /*, d */) {}');
+  });
+
   it('arrow function', () => {
     testFunction('() => {}');
   });
@@ -39,6 +52,16 @@ describe('Parse', () => {
   });
   it('arrow function with args', () => {
     testFunction('(a, b, c /*, d */) => {}');
+  });
+
+  it('async arrow function', () => {
+    testFunction('async () => {}');
+  });
+  it('async arrow function with args', () => {
+    testFunction('async (a, b, c) => {}');
+  });
+  it('async arrow function with args', () => {
+    testFunction('async (a, b, c /*, d */) => {}');
   });
 
   it('"this" is parent value', () => {

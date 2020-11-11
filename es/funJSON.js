@@ -10,14 +10,10 @@ function reviver(key, value) {
 }
 
 function detect(key, value) {
-  if (typeof value !== 'string') {
-    return false;
-  }
-
   return (
     typeof value == 'string' &&
-    (/^function\s*\([\s\w$,_/*]*\)\s*\{[\s\S]*\}$/.test(value) ||
-      /^\([\s\w$,_/*]*\)\s*=>\s*\{[\s\S]*\}$/.test(value))
+    (/^\s*(async\s+)*function\s*\([\s\w$,_/*]*\)\s*\{[\s\S]*\}$/.test(value) ||
+      /^\s*(async\s+)*\([\s\w$,_/*]*\)\s*=>\s*\{[\s\S]*\}$/.test(value))
   );
 }
 
